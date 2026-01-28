@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>회원가입</title>
+    <link rel="stylesheet" href="./ex.css" />
+  </head>
+  <body>
+    <main class="container" style="padding-top: 16px">
+      <h2 class="h2">회원가입</h2>
+
+      <form id="signupForm">
+        <input
+          id="suEmail"
+          type="email"
+          placeholder="이메일"
+          required
+          style="
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+          "
+        />
+
+        <input
+          id="suPw"
+          type="password"
+          placeholder="비밀번호(최소 6자)"
+          minlength="6"
+          required
+          style="
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            margin-top: 10px;
+          "
+        />
+
+        <input
+          id="suPw2"
+          type="password"
+          placeholder="비밀번호 확인"
+          minlength="6"
+          required
+          style="
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            margin-top: 10px;
+          "
+        />
+
+        <button class="btn-primary" type="submit">회원가입</button>
+      </form>
+
+      <p id="msg" style="margin-top: 14px"></p>
+
+      <a href="./login.html" style="display: block; margin-top: 10px"
+        >이미 계정이 있나요? 로그인</a
+      >
+    </main>
+
+    <script src="./signup.js"></script>
+  </body>
+</html>
