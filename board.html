@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>게시판 | LIVE EVIL</title>
+  <link rel="stylesheet" href="./index.css" />
+  <style>
+    .board-wrap{ max-width:980px; margin:0 auto; padding:18px 0 50px; }
+    .board-top{ display:flex; align-items:center; gap:10px; }
+    .back{ border:1px solid var(--line); background:#fff; border-radius:12px; padding:10px 12px; font-weight:900; cursor:pointer; }
+    .board-title{ margin:0; font-size:16px; font-weight:900; }
+    .list{ margin-top:14px; border:1px solid var(--line); border-radius:14px; background:#fff; overflow:hidden; }
+    .item{ display:flex; justify-content:space-between; gap:10px; padding:14px; border-top:1px solid var(--line); }
+    .item:first-child{ border-top:0; }
+    .item strong{ font-size:13px; }
+    .item span{ color:var(--muted); font-size:12px; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container topbar">
+      <a class="logo" href="./index.html">LIVE EVIL</a>
+      <div class="right">
+        <button class="icon" id="searchBtn" aria-label="검색"></button>
+        <button class="icon" id="cartBtn" aria-label="장바구니"></button>
+        <button class="icon" id="userBtn" aria-label="마이페이지/로그인"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="board-wrap">
+      <div class="board-top">
+        <button class="back" id="backBtn" type="button">←</button>
+        <h1 class="board-title" id="boardTitle">게시판</h1>
+      </div>
+
+      <section class="list" id="boardList" aria-label="게시글 목록"></section>
+    </div>
+  </main>
+
+  <script type="module" src="./board.js"></script>
+  <script type="module" src="./index.js"></script>
+</body>
+</html>

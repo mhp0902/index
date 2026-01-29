@@ -15,9 +15,23 @@ html { scroll-behavior: smooth; }
 .logo{ font-weight:900; letter-spacing:.08em; }
 .right{ display:flex; gap:8px; }
 .icon{
-  width:40px; height:40px; border:1px solid var(--line);
-  background:#fff; border-radius:12px; cursor:pointer;
+  width:40px;
+  height:40px;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:12px;
+  cursor:pointer;
 }
+.icon::before{
+  display:block;
+  text-align:center;
+  line-height:38px;
+  font-size:18px;
+  content:"";
+}
+#searchBtn::before{ content:"⌕"; }
+#cartBtn::before{ content:"🛒"; }
+#userBtn::before{ content:"👤"; }
 
 #recommend,
 #best { scroll-margin-top: 80px; }
@@ -313,4 +327,42 @@ img{ width:100%; height:auto; display:block; }
     grid-template-columns: 2fr 1fr;
     align-items: start;
   }
+}
+/* 데스크톱 상단 링크(공지/게시판) */
+.desk-links{ display:none; gap:6px; align-items:center; margin-right:6px; }
+.desk-links a{
+  padding:8px 10px;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:900;
+  line-height:1;
+}
+@media (min-width:768px){
+  .desk-links{ display:flex; }
+}
+
+@media (min-width:768px){
+  /* 로고 글자 1.4배 */
+  .logo{
+    font-size:1.4em;
+  }
+
+  /* 로고를 헤더 가운데 '고정' 배치 */
+  .topbar{ position:relative; }
+  .topbar .logo{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    white-space:nowrap;
+  }
+}
+
+.right{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  margin-left:auto;      /* 오른쪽으로 밀기 */
+  justify-content:flex-end; /* 내부도 오른쪽 정렬 */
 }

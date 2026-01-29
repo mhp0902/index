@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>고객센터 | LIVE EVIL</title>
+  <link rel="stylesheet" href="./index.css" />
+  <style>
+    .cs-wrap{ max-width:980px; margin:0 auto; padding:18px 0 50px; }
+    .cs-title{ margin:10px 0 14px; font-size:16px; font-weight:900; }
+    .cs-card{ border:1px solid var(--line); border-radius:14px; background:#fff; overflow:hidden; }
+    .cs-card a{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 14px;
+      border-top:1px solid var(--line);
+      font-weight:900;
+    }
+    .cs-card a:first-child{ border-top:0; }
+    .cs-card small{ font-weight:700; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container topbar">
+      <a class="logo" href="./index.html">LIVE EVIL</a>
+      <div class="right">
+        <button class="icon" id="searchBtn" aria-label="검색"></button>
+        <button class="icon" id="cartBtn" aria-label="장바구니"></button>
+        <button class="icon" id="userBtn" aria-label="마이페이지/로그인"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="cs-wrap">
+      <h1 class="cs-title">고객센터</h1>
+
+      <section class="cs-card" aria-label="고객센터 메뉴">
+        <a href="./board.html?type=notice">공지사항 <small>></small></a>
+        <a href="./board.html?type=faq">자주 묻는 질문 <small>></small></a>
+        <a href="./board.html?type=shipping">배송안내 <small>></small></a>
+        <a href="./board.html?type=return">교환/반품 <small>></small></a>
+        <a href="./board.html?type=cancel">배송전취소 <small>></small></a>
+        <a href="./board.html?type=payment">입금/기타 <small>></small></a>
+        <a href="./board.html?type=qna">상품문의 <small>></small></a>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="./index.js"></script>
+</body>
+</html>

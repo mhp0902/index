@@ -1,0 +1,28 @@
+.line{
+  display:grid;
+  grid-template-columns: 1fr 86px 28px 90px;
+  gap:10px;
+  align-items:center;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:10px 12px;
+  background:#fff;
+}
+.line .l-name{ font-weight:900; font-size:13px; }
+.line .l-opt{ color:var(--muted); font-size:12px; margin-top:2px; }
+.qty{
+  width:86px;
+  padding:8px 10px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  font-weight:900;
+}
+.xbtn{
+  width:28px; height:28px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:#fff;
+  cursor:pointer;
+  font-weight:900;
+}
+.l-price{ text-align:right; font-weight:900; font-size:13px; }

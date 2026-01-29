@@ -3,116 +3,221 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>상품 상세</title>
+    <title>상품 상세 | LIVE EVIL</title>
     <link rel="stylesheet" href="./index.css" />
+    <style>
+      .detail-wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 16px 0 90px;
+      }
+      .detail-top {
+        display: grid;
+        gap: 14px;
+      }
+      .detail-img {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .detail-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .detail-info {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: #fff;
+        padding: 14px;
+      }
+      .d-title {
+        margin: 0 0 6px;
+        font-size: 16px;
+        font-weight: 900;
+      }
+      .d-price {
+        margin: 0 0 10px;
+        font-weight: 900;
+      }
+      .d-sub {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .opt {
+        border-top: 1px solid var(--line);
+        padding-top: 12px;
+        margin-top: 12px;
+      }
+      .opt h4 {
+        margin: 0 0 8px;
+        font-size: 13px;
+      }
+      .opt-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .chipbtn {
+        border: 1px solid var(--line);
+        background: #fff;
+        border-radius: 12px;
+        padding: 10px 12px;
+        font-weight: 900;
+        font-size: 13px;
+        cursor: pointer;
+        min-width: 64px;
+      }
+      .chipbtn.is-active {
+        outline: 2px solid #111;
+      }
+      .chipbtn:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      .selected {
+        border-top: 1px solid var(--line);
+        margin-top: 14px;
+        padding-top: 12px;
+      }
+      .selected h4 {
+        margin: 0 0 8px;
+        font-size: 13px;
+      }
+      .selbox {
+        border: 1px dashed var(--line);
+        border-radius: 12px;
+        padding: 10px 12px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+        background: #fafafa;
+      }
+
+      /* 하단 고정 구매바(캡처 느낌) */
+      .buybar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        border-top: 1px solid var(--line);
+        padding: 10px 0;
+        z-index: 50;
+      }
+      .buy-inner {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .buy-total {
+        flex: 1;
+      }
+      .buy-total p {
+        margin: 0;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .buy-total strong {
+        display: block;
+        font-size: 14px;
+      }
+      .btn {
+        border: 1px solid var(--line);
+        background: #fff;
+        border-radius: 12px;
+        padding: 12px 14px;
+        font-weight: 900;
+        cursor: pointer;
+        min-width: 120px;
+      }
+      .btn.primary {
+        background: #111;
+        color: #fff;
+        border-color: #111;
+      }
+      @media (min-width: 768px) {
+        .detail-top {
+          grid-template-columns: 1.1fr 0.9fr;
+          align-items: start;
+        }
+      }
+    </style>
   </head>
-
   <body>
-    <main class="container" style="padding-top:16px;">
-      <h2 class="h2">상품 상세</h2>
-
-      <section class="card" style="padding:12px;">
-        <div class="thumb sq">
-          <img id="detailImg" src="" alt="" />
-        </div>
-        <p id="detailName" style="margin:10px 0 0; font-weight:900;"></p>
-        <p id="detailPrice" style="margin:6px 0 0; color:var(--muted);"></p>
-
-        <button class="btn-primary" id="detailAddBtn" type="button" style="margin-top:12px;">
-          장바구니 담기
-        </button>
-      </section>
-    </main>
- <footer class="site-footer">
-      <div class="container footer-inner">
-        <div class="footer-top">
-          <div class="footer-brand">LIVE EVIL</div>
-          <nav class="footer-links" aria-label="푸터 링크">
-            <a href="./terms.html">이용약관</a>
-            <a href="./privacy.html">개인정보 처리방침</a>
-            <a href="./guide.html">이용안내</a>
-          </nav>
-        </div>
-
-        <div class="footer-grid">
-          <section class="footer-col" aria-label="사업자 정보">
-            <h3 class="footer-h">SHOP INFO</h3>
-            <dl class="footer-dl">
-              <div>
-                <dt>상호</dt>
-                <dd>(주)라이브이빌</dd>
-              </div>
-              <div>
-                <dt>대표</dt>
-                <dd>홍길동</dd>
-              </div>
-              <div>
-                <dt>사업자등록번호</dt>
-                <dd>000-00-00000</dd>
-              </div>
-              <div>
-                <dt>통신판매업신고</dt>
-                <dd>제2026-서울-0000호</dd>
-              </div>
-              <div>
-                <dt>주소</dt>
-                <dd>서울특별시 ○○구 ○○로 00 (○○동) 0층</dd>
-              </div>
-              <div>
-                <dt>고객센터</dt>
-                <dd>0000-0000 (평일 10:00~17:00)</dd>
-              </div>
-              <div>
-                <dt>이메일</dt>
-                <dd>help@liveevil.com</dd>
-              </div>
-            </dl>
-          </section>
-
-          <section class="footer-col" aria-label="무통장 입금 정보">
-            <h3 class="footer-h">BANK INFO</h3>
-            <div class="footer-badges">
-              <button class="footer-badge" type="button">무통장 환불</button>
-              <button class="footer-badge" type="button">안내서 변경</button>
-            </div>
-            <dl class="footer-dl">
-              <div>
-                <dt>국민은행</dt>
-                <dd>000000-00-000000</dd>
-              </div>
-              <div>
-                <dt>신한은행</dt>
-                <dd>000-000-000000</dd>
-              </div>
-              <div>
-                <dt>예금주</dt>
-                <dd>(주)라이브이빌</dd>
-              </div>
-            </dl>
-          </section>
-        </div>
-
-        <div class="footer-bottom">
-          <small>© LIVE EVIL. All rights reserved.</small>
+    <header class="header">
+      <div class="container topbar">
+        <a class="logo" href="./index.html">LIVE EVIL</a>
+        <div class="right">
+          <button class="icon" id="searchBtn" aria-label="검색"></button>
+          <button class="icon" id="cartBtn" aria-label="장바구니"></button>
+          <button
+            class="icon"
+            id="userBtn"
+            aria-label="마이페이지/로그인"
+          ></button>
         </div>
       </div>
-    </footer>
+    </header>
 
-    <script src="./detail.js"></script>
-    
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/697af29d0c5b971c38a593d0/1jg447dvj';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+    <main class="container">
+      <div class="detail-wrap">
+        <section class="detail-top" aria-label="상품 요약">
+          <div class="detail-img">
+            <img id="detailImg" alt="상품 이미지" />
+          </div>
 
+          <div class="detail-info">
+            <h1 class="d-title" id="detailName">상품명</h1>
+            <p class="d-price" id="detailPrice">0원</p>
+            <p class="d-sub">옵션을 선택한 뒤 구매/장바구니를 진행하세요.</p>
+
+            <div class="opt" aria-label="컬러 선택">
+              <h4>[필수] color 선택</h4>
+              <div class="opt-row" id="colorOptions"></div>
+            </div>
+
+            <div class="opt" aria-label="사이즈 선택">
+              <h4>[필수] size 선택</h4>
+              <div class="opt-row" id="sizeOptions"></div>
+            </div>
+
+            <div class="selected" aria-label="선택된 옵션">
+              <h4>선택된 옵션</h4>
+
+              <div class="selbox" id="selectedHint">
+                옵션을 선택하시면 아래에 추가됩니다.
+              </div>
+
+              <div
+                id="optionLines"
+                style="margin-top: 10px; display: grid; gap: 10px"
+              ></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div class="buybar" aria-label="구매 바">
+      <div class="container buy-inner">
+        <div class="buy-total">
+          <p>Total</p>
+          <strong id="totalPriceText">0원</strong>
+        </div>
+        <button class="btn primary" id="buyNowBtn" type="button">
+          바로구매
+        </button>
+        <button class="btn" id="detailAddBtn" type="button">장바구니</button>
+      </div>
+    </div>
+
+    <script type="module" src="./detail.js"></script>
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
