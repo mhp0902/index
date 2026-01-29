@@ -9,7 +9,8 @@ if (btn && menu) {
     const opened = menu.classList.toggle('is-open');
     btn.setAttribute('aria-expanded', opened ? 'true' : 'false');
   });
-}
+} // ← 이 중괄호가 빠져있어서 전체가 멈춥니다. [file:10]
+
 
 // ======================
 // 2) 아이콘 이동: 검색/장바구니
@@ -167,9 +168,22 @@ document.addEventListener('click', (e) => {
     '&img=' + encodeURIComponent(img);
 });
 // ======================
-// (추가) products.json 내보내기(다운로드) + 로컬에서만 버튼 보이기
+// (추가) products.json 내보내기(다운로드)
+// 로컬 + 관리자(admin)일 때만 버튼 보이기
 // ======================
 const exportBtn = document.getElementById('exportProductsBtn');
+
+function isLocalEnv() {
+  const host = location.hostname;
+  return (
+    host === 'localhost' ||
+    host === '127.0.0.1' ||
+    host === '' ||
+    host.startsWith('192.168.') ||
+    host.startsWith('10.') ||
+    /^172\.(1[6-9]|2\d|3[0-1])\./.test(host)
+  );
+}
 
 function exportProductsJson() {
   const els = document.querySelectorAll(
@@ -184,7 +198,6 @@ function exportProductsJson() {
     }))
     .filter((p) => p.name && p.img);
 
-  // 중복 제거(name+img 기준)
   const seen = new Set();
   const uniq = [];
   for (const p of items) {
@@ -209,10 +222,17 @@ function exportProductsJson() {
 }
 
 if (exportBtn) {
-  // 로컬에서만 보이기
-  const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-  exportBtn.hidden = !isLocal;
+  const isLocal = isLocalEnv();
+  const isAdmin = sessionStorage.getItem('role') === 'admin'; // [web:732]
 
-  // 클릭 시 다운로드
-  exportBtn.addEventListener('click', exportProductsJson);
+  exportBtn.hidden = !(isLocal && isAdmin);
+
+  exportBtn.addEventListener('click', (e) => {
+    if (!(isLocal && isAdmin)) {
+      e.preventDefault();
+      alert('관리자(로컬)만 사용할 수 있어요.');
+      return;
+    }
+    exportProductsJson();
+  });
 }
