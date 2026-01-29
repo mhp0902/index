@@ -167,7 +167,7 @@ document.addEventListener('click', (e) => {
     '&img=' + encodeURIComponent(img);
 });
 // ======================
-// (추가) products.json 내보내기(다운로드)
+// (추가) products.json 내보내기(다운로드) + 로컬에서만 버튼 보이기
 // ======================
 const exportBtn = document.getElementById('exportProductsBtn');
 
@@ -195,7 +195,7 @@ function exportProductsJson() {
   }
 
   const json = JSON.stringify(uniq, null, 2);
-  const blob = new Blob([json], { type: 'application/json' }); // [web:362]
+  const blob = new Blob([json], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
 
   const a = document.createElement('a');
@@ -205,9 +205,14 @@ function exportProductsJson() {
   a.click();
   a.remove();
 
-  URL.revokeObjectURL(url); // [web:393]
+  URL.revokeObjectURL(url);
 }
 
 if (exportBtn) {
+  // 로컬에서만 보이기
+  const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  exportBtn.hidden = !isLocal;
+
+  // 클릭 시 다운로드
   exportBtn.addEventListener('click', exportProductsJson);
 }
