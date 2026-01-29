@@ -1,0 +1,137 @@
+[
+  {
+    "name": "겨울 시즌 특가",
+    "price": 29900,
+    "img": "./images/alex-roosso-STtmK08Sv3E-unsplash.jpg"
+  },
+  {
+    "name": "스포츠 데일리룩",
+    "price": 39000,
+    "img": "./images/anastasia-chazova-oqYa7lCZSxU-unsplash.jpg"
+  },
+  {
+    "name": "프리미엄 아우터",
+    "price": 129000,
+    "img": "./images/anil-sharma-IBUFTcGYZXw-unsplash.jpg"
+  },
+  {
+    "name": "아우터",
+    "price": 29000,
+    "img": "./images/anil-sharma-tGzWA_AEAn4-unsplash.jpg"
+  },
+  {
+    "name": "프리미엄",
+    "price": 229000,
+    "img": "./images/anil-sharma-vfQHP2Noo3c-unsplash.jpg"
+  },
+  {
+    "name": "데일리 니트",
+    "price": 19900,
+    "img": "./images/animgraph-lab-yImkrRzTviM-unsplash.jpg"
+  },
+  {
+    "name": "롱 스커트",
+    "price": 29900,
+    "img": "./images/hiva-sharifi-okSO_PC4Tls-unsplash.jpg"
+  },
+  {
+    "name": "와이드 팬츠",
+    "price": 34900,
+    "img": "./images/irish83-BuAUWqRH9Ao-unsplash.jpg"
+  },
+  {
+    "name": "치마",
+    "price": 44900,
+    "img": "./images/8.jpg"
+  },
+  {
+    "name": "치마",
+    "price": 44900,
+    "img": "./images/7.jpg"
+  },
+  {
+    "name": "치마",
+    "price": 44900,
+    "img": "./images/1.jpg"
+  },
+  {
+    "name": "바지",
+    "price": 54900,
+    "img": "./images/6.jpg"
+  },
+  {
+    "name": "장갑",
+    "price": 14900,
+    "img": "./images/2.jpg"
+  },
+  {
+    "name": "코트",
+    "price": 144900,
+    "img": "./images/3.jpg"
+  },
+  {
+    "name": "상품명 1",
+    "price": 19900,
+    "img": "./images/irish83-XoGl_lbA7kI-unsplash.jpg"
+  },
+  {
+    "name": "상품명 2",
+    "price": 24900,
+    "img": "./images/karolis-milisauskas-kB1itx3ABxE-unsplash.jpg"
+  },
+  {
+    "name": "상품명 3",
+    "price": 39000,
+    "img": "./images/sergey-sokolov-il21vLusKHQ-unsplash.jpg"
+  },
+  {
+    "name": "상품명 4",
+    "price": 59000,
+    "img": "./images/sergey-sokolov-omZE98iWRP4-unsplash.jpg"
+  },
+  {
+    "name": "상품명 5",
+    "price": 29900,
+    "img": "./images/swore-m7R2fjb3sHI-unsplash.jpg"
+  },
+  {
+    "name": "상품명 6",
+    "price": 34900,
+    "img": "./images/tamara-malaniy-727SZkrO9dM-unsplash.jpg"
+  },
+  {
+    "name": "상품명 7",
+    "price": 54900,
+    "img": "./images/5.jpg"
+  },
+  {
+    "name": "상품명 8",
+    "price": 64900,
+    "img": "./images/6.jpg"
+  },
+  {
+    "name": "상품명 9",
+    "price": 64900,
+    "img": "./images/7.jpg"
+  },
+  {
+    "name": "상품명 10",
+    "price": 164900,
+    "img": "./images/8.jpg"
+  },
+  {
+    "name": "상품명 11",
+    "price": 64900,
+    "img": "./images/1.jpg"
+  },
+  {
+    "name": "상품명 12",
+    "price": 14900,
+    "img": "./images/2.jpg"
+  },
+  {
+    "name": "상품명 13",
+    "price": 564900,
+    "img": "./images/3.jpg"
+  }
+]
