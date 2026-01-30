@@ -1,3 +1,33 @@
+// 이벤트배너
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = document.querySelectorAll('.banner-slide');
+  const prevBtn = document.querySelector('.banner-nav.prev');
+  const nextBtn = document.querySelector('.banner-nav.next');
+  
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+  
+  function showSlide(index) {
+    slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+  }
+  
+  prevBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  });
+  
+  nextBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  });
+  
+  // 자동 슬라이드
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  }, 4000);
+});
+
 // ======================
 // 1) 메뉴 토글
 // ======================
