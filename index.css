@@ -10,6 +10,96 @@ a{ color:inherit; text-decoration:none; }
 html { scroll-behavior: smooth; }
 
 /* header */
+.event-banner {
+  position: relative;
+  padding: 20px 0;
+  overflow: visible; /* 버튼 삐져나옴 허용 */
+}
+.banner-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.banner-overlay {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.shop-btn-overlay {
+  display: inline-block;
+  background: rgba(255,255,255,0.95);
+  color: #2c3e50;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 900;
+  font-size: 18px;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255,255,255,0.8);
+}
+.shop-btn-overlay:hover {
+  background: white;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.event-banner {
+  width: 100%;
+  padding: 25px 0 45px 0; /* 하단 45px 여백 */
+  margin: 0;
+  overflow: visible;
+  box-sizing: border-box;
+}
+.banner-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.banner-right {
+  width: 90vw;
+  max-width: 1300px;
+  min-width: 360px;
+  line-height: 0; /* 인라인 여백 제거 */
+}
+.banner-img {
+  width: 100%;
+  height: 420px; /* 고정 높이로 글자 안깨짐 */
+  max-height: 420px;
+  object-fit: cover;
+  object-position: center 0%; /* 상단부터 정확히 */
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+  line-height: 0;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .banner-right {
+    width: 100vw;
+    max-width: none;
+  }
+  .banner-img {
+    height: 320px;
+    border-radius: 12px;
+  }
+  .event-banner {
+    padding: 20px 0 40px;
+  }
+}
+
+/* 대형 모니터 */
+@media (min-width: 1600px) {
+  .banner-img {
+    height: 450px;
+  }
+}
+
 .header{ position:sticky; top:0; background:#fff; border-bottom:1px solid var(--line); }
 .topbar{ display:flex; align-items:center; justify-content:space-between; padding:12px 0; }
 .logo{ font-weight:900; letter-spacing:.08em; }
@@ -83,6 +173,7 @@ img{ width:100%; height:auto; display:block; }
 
 /* row */
 .row-wrap{ position:relative; }
+
 .row{
   display:flex; gap:10px; overflow-x:auto;
   scroll-snap-type:x mandatory;
@@ -365,4 +456,185 @@ img{ width:100%; height:auto; display:block; }
   align-items:center;
   margin-left:auto;      /* 오른쪽으로 밀기 */
   justify-content:flex-end; /* 내부도 오른쪽 정렬 */
+}
+.product-img {
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+}
+.product-img:hover {
+  transform: scale(1.5) !important;
+  z-index: 20;
+}
+.detail-img {
+  overflow: visible !important;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  min-width: 100px;
+}
+.btn.primary {
+  background: #8B5CF6; /* 보라색 */
+  color: white;
+}
+#popupClose:hover {
+  background: #f3f4f6;
+}
+.scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  box-shadow: 0 8px 24px rgba(102,126,234,0.4);
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.scroll-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.scroll-top-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 32px rgba(102,126,234,0.6);
+}
+
+.welcome-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70vw;      /* 모바일: 화면 70% */
+  height: 70vh;
+  background: rgba(0,0,0,0.7);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* PC 화면에서 작게 (1200px 이상) */
+@media (min-width: 1200px) {
+  .welcome-popup {
+    width: 500px !important;   /* 고정 500px */
+    height: 600px !important;
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+  .popup-content {
+    max-width: 480px !important;
+    max-height: 560px !important;
+  }
+}
+
+/* 태블릿 (768px 이상) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .welcome-popup {
+    width: 80vw !important;
+    height: 75vh !important;
+  }
+}
+
+.popup-content {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  width: 100%;
+  height: 100%;
+}
+.popup-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 100000 !important; /* G마켓보다 더 높게 */
+  width: 100vw !important;
+  background: rgba(255,255,255,0.95) !important;
+}
+.container.topbar {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 16px 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
+  border-bottom: 1px solid #eee !important;
+  background: white !important;
+  backdrop-filter: blur(20px) !important;
+}
+.logo {
+  font-size: 26px !important;
+  font-weight: 900 !important;
+  color: #333 !important;
+}
+.right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+}
+.desk-links {
+  display: flex;
+  gap: 12px;
+}
+.desk-links a {
+  padding: 10px 18px !important;
+  border-radius: 20px !important;
+  font-weight: 600 !important;
+  color: #555 !important;
+  text-decoration: none !important;
+  transition: background 0.2s !important;
+}
+.desk-links a:hover {
+  background: #f5f5f5 !important;
+}
+.icon {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  border: 2px solid #ddd !important;
+  background: white !important;
+  color: #666 !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+}
+.icon:hover {
+  border-color: #667eea !important;
+  color: #667eea !important;
+  transform: scale(1.05) !important;
+}
+
+/* 콘텐츠 헤더 아래로 */
+body {
+  padding-top: 80px !important; /* 헤더 높이 */
+}
+.event-banner,
+main > *,
+body > *:first-child {
+  margin-top: 0 !important;
 }

@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Shop Layout</title>
     <link rel="stylesheet" href="./index.css" />
+    <style>
+.card img[data-img], .mini img, .slide img, .product-img {
+  transition: transform 0.3s ease !important;
+  cursor: zoom-in !important;
+}
+.card img[data-img]:hover, .mini img:hover, .slide img:hover, .product-img:hover {
+  transform: scale(1.3) !important;
+  z-index: 10 !important;
+  position: relative !important;
+}
+.row-wrap {
+  overflow: visible !important;
+}
+</style>
+
   </head>
 
   <body>
@@ -22,7 +37,7 @@
 
         <div class="logo">LIVE EVIL</div>
 <div class="right">
-  <nav class="desk-links" aria-label="데스크톱 메뉴">
+  <nav class="desk-links" aria-label="데스크톱 메뉴" style="display: none;">
     <a href="./board.html?type=notice">공지</a>
     <a href="./customer.html">게시판</a>
   </nav>
@@ -41,6 +56,11 @@
   <a href="./customer.html">게시판</a>
 </nav>
     </header>
+       <section class="event-banner">
+  <div class="banner-container">
+    <img src="./images/sale.png" alt="봄가을 세일" class="banner-img">
+  </div>
+</section>
 
     <main class="container">
       <div class="more-wrap">
@@ -627,6 +647,19 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
-
+<div id="welcomePopup" class="welcome-popup" style="display: none;">
+  <div class="popup-content">
+    <img src="./images/welcome.png" alt="환영 쿠폰" style="width: 100%; height: auto;">
+    <div class="popup-buttons">
+      <button id="popupSignup" class="btn primary">회원가입</button>
+      <button id="popupClose" class="btn">닫기</button>
+    </div>
+  </div>
+</div>
+<button id="scrollTopBtn" class="scroll-top-btn" title="맨 위로 ↑">
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+    <path d="M12 5l-7 7h4v7h6v-7h4l-7-7z"/>
+  </svg>
+</button>
   </body>
 </html>

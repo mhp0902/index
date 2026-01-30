@@ -236,3 +236,69 @@ if (exportBtn) {
     exportProductsJson();
   });
 }
+document.addEventListener('DOMContentLoaded', () => {
+  // 기존 코드 아래...
+  const productImages = document.querySelectorAll('.card img[data-img], .mini img, .slide img');
+  productImages.forEach(img => img.classList.add('product-img'));
+  console.log(`${productImages.length}개 이미지에 확대 효과 적용!`);
+});
+// 환영 쿠폰 팝업
+const popup = document.getElementById('welcomePopup');
+const signupBtn = document.getElementById('popupSignup');
+const closeBtn = document.getElementById('popupClose');
+
+// 페이지 로드 시 로그인 안 했으면 팝업 띄우기
+if (!localStorage.getItem('loggedIn')) {
+  setTimeout(() => {
+    popup.style.display = 'flex';
+  }, 1000); // 1초 후 표시
+}
+
+if (signupBtn) {
+  signupBtn.addEventListener('click', () => {
+    localStorage.setItem('showWelcomePopup', 'false'); // 다시 안 뜨게
+    window.location.href = 'signup.html';
+  });
+}
+
+if (closeBtn) {
+  closeBtn.addEventListener('click', () => {
+    popup.style.display = 'none';
+  });
+}
+
+// 배경 클릭 시 닫기
+popup.addEventListener('click', (e) => {
+  if (e.target === popup) popup.style.display = 'none';
+});
+// 왼쪽 아래 상단 이동 버튼
+const scrollBtn = document.getElementById('scrollTopBtn');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    scrollBtn.classList.add('show');
+  } else {
+    scrollBtn.classList.remove('show');
+  }
+});
+scrollBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+document.querySelector('.shop-btn').addEventListener('mouseenter', () => {
+  document.querySelector('.banner-img').style.transform = 'scale(1.05)';
+});
+document.querySelector('.shop-btn').addEventListener('mouseleave', () => {
+  document.querySelector('.banner-img').style.transform = 'scale(1)';
+});
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      document.body.classList.toggle('scrolled', window.scrollY > 50);
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+document.getElementById('menuBtn').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.toggle('is-open');
+});
